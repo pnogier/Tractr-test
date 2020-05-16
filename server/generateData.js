@@ -28,7 +28,7 @@ const generateUsers = num => {
 		});
 	}
 
-	return { data: users }; // Setting the users aray to the 'data' key in an object
+	return { users }; // Setting the users array in an object
 };
 
 // Ask how many users to generate reading on the stdin
