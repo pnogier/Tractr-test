@@ -18,8 +18,8 @@ const generateUsers = num => {
 		// Add the user to the users array
 		users.push({
 			id: id, // Set the id
-			first_name: faker.name.firstName(gender), // Set a fake firstName related to the gender
-			last_name: faker.name.lastName(), // Set a fake lastName
+			firstName: faker.name.firstName(gender), // Set a fake firstName related to the gender
+			lastName: faker.name.lastName(), // Set a fake lastName
 			gender: gender, // Set the gender previoulsy generated
 			age: faker.random.number({ min: 1, max: 100 }), // Set a fake age between 1 and 100
 			email: faker.internet.email(), // Set a fake email
