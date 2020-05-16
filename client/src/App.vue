@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ListPage from "./components/ListPage.vue"; // Import the ListPage component
+import ListPage from "./components/pages/ListPage.vue"; // Import the ListPage component
 
 // Export the component with other components used in here
 export default {
