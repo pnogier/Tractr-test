@@ -31,7 +31,7 @@ const generateUsers = num => {
 };
 
 // Ask how many users to generate reading on the stdin
-readline.question('How many fake users do you want ?\n', numUsers => {
+readline.question('How many fake users do you want ?\n(Only works with an integer)\n', numUsers => {
 	console.log(`Generating ${numUsers} users...\n`); // Tell the user that we are generating the correct amount of fake users
 	let users = generateUsers(numUsers); // Generate the correct amount of fake users
 	fs.writeFileSync('./data/users.json', JSON.stringify(users, null, '\t')); // Write the obtained object to a json file and add \t to make the file easier to read
