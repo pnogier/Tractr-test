@@ -21,6 +21,7 @@ const generateUsers = num => {
 			first_name: faker.name.firstName(gender), // Set a fake firstName related to the gender
 			last_name: faker.name.lastName(), // Set a fake lastName
 			gender: gender, // Set the gender previoulsy generated
+			age: faker.random.number({ min: 1, max: 100 }), // Set a fake age between 1 and 100
 			email: faker.internet.email(), // Set a fake email
 			country: faker.address.country(), // Set a fake country
 			avatar: faker.internet.avatar() // Set a fake avatar
