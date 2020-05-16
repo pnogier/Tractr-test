@@ -21,6 +21,8 @@ ___
 
 ### Usage
 
+#### In a first terminal tab :
+
 Navigate to server directory
 > cd server
 
@@ -29,3 +31,19 @@ Install the dependencies
 
 Generate the fake data
 > node generateData.js
+
+Run the server
+> yarn start
+
+#### In another terminal tab :
+
+Navigate to client directory
+> cd client
+
+Install the dependencies
+> yarn
+
+Run the client server
+> yarn serve
+
+Navigate to the [Client url](http://localhost:8080)
