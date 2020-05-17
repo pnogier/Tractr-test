@@ -32,6 +32,8 @@ Install the dependencies
 Generate the fake data
 > node generateData.js
 
+### :warning: Warning, the users avatar and names may not be relevant to the gender :warning:
+
 Run the server
 > yarn start
 
