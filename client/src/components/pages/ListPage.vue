@@ -45,7 +45,7 @@ export default {
       filters: {
         age: [0, 100], // Age range filter, default min 0 max 100
         genders: ["male", "female"], // Genders array filter, default male and female
-        search: null
+        search: ""
       },
       genderItems: ["male", "female"] // Genders items for select
     };
@@ -56,11 +56,24 @@ export default {
       // Return a new object going through each user is users using the filter method
       return this.users.filter(
         // Aply the filters
-        user =>
-          (user.gender == this.filters.genders[0] ||
-            user.gender == this.filters.genders[1]) &&
-          user.age >= this.filters.age[0] &&
-          user.age <= this.filters.age[1]
+        user => {
+          return (
+            (user.gender == this.filters.genders[0] ||
+              user.gender == this.filters.genders[1]) &&
+            user.age >= this.filters.age[0] &&
+            user.age <= this.filters.age[1] &&
+            this.filters.search
+              .toLowerCase()
+              .split(" ")
+              .every(word => {
+                return (
+                  user.country.toLowerCase().includes(word) ||
+                  user.firstName.toLowerCase().includes(word) ||
+                  user.lastName.toLowerCase().includes(word)
+                );
+              })
+          );
+        }
       );
     }
   },
