@@ -1,18 +1,30 @@
 <template>
-  <div class="list-item">
-    <!-- Print the whole users array into a paragraph -->
-    <div>
-      <img class="avatar" v-bind:src="user.avatar" v-bind:alt="user.id" />
-      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-    </div>
-  </div>
+  <v-card class="mx-auto" max-width="500">
+    <v-row align="end" class="fill-height">
+      <v-col align-self="start" class="px-7" cols="6">
+        <v-avatar class="profile" color="grey" size="100">
+          <v-img v-bind:src="user.avatar" />
+        </v-avatar>
+      </v-col>
+      <v-col class="py-0" align-self="start" cols="6">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">{{ user.firstName }} {{ user.lastName }}</v-list-item-title>
+            <v-list-item-subtitle>{{ user.country }}</v-list-item-subtitle>
+            <v-list-item-subtitle>{{ user.gender }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
+// Export ListItem component
 export default {
   name: "ListItem",
   props: {
-    user: Object
+    user: Object // The user prop received is an Object
   }
 };
 </script>

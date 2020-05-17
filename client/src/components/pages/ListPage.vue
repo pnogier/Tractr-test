@@ -1,17 +1,18 @@
 <template>
-  <div class="list-page">
-    <!-- Print the whole users array into a paragraph -->
+  <v-container>
     <ul>
+      <!-- Go through user in users and render a ListItem for each of them -->
       <ListItem v-for="user in users" :key="user.id" :user="user" />
     </ul>
-  </div>
+  </v-container>
 </template>
 
 <script>
 import axios from "axios"; // Import axios to perform api calls
 const API_URL = "http://localhost:4000/users"; // Set the api url as API_URL const
-import ListItem from "../ListItem.vue";
+import ListItem from "../ListItem.vue"; // Import ListItem component
 
+// Export ListPage component
 export default {
   name: "ListPage",
   data() {
@@ -26,7 +27,7 @@ export default {
     });
   },
   components: {
-    ListItem
+    ListItem // Export other components used in here
   }
 };
 </script>
