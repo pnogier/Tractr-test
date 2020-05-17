@@ -15,6 +15,11 @@
             label="Genders"
             multiple
           ></v-select>
+          <v-text-field
+            v-model="filters.search"
+            label="Search country, first name, last name..."
+            prepend-icon="fa-search"
+          ></v-text-field>
         </v-col>
       </v-row>
     </v-card>
@@ -39,7 +44,8 @@ export default {
       users: [], // Set a users array to our component data
       filters: {
         age: [0, 100], // Age range filter, default min 0 max 100
-        genders: ["male", "female"] // Genders array filter, default male and female
+        genders: ["male", "female"], // Genders array filter, default male and female
+        search: null
       },
       genderItems: ["male", "female"] // Genders items for select
     };
