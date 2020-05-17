@@ -1,19 +1,23 @@
 <template>
   <v-card class="mx-auto" max-width="500">
     <v-row align="end" class="fill-height">
-      <v-col align-self="start" class="px-7" cols="6">
+      <v-col align-self="start" class="px-7" cols="5">
         <v-avatar class="profile" color="grey" size="100">
           <v-img v-bind:src="user.avatar" />
         </v-avatar>
       </v-col>
-      <v-col class="py-0" align-self="start" cols="6">
+      <v-col class="py-0" align-self="start" cols="5">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">{{ user.firstName }} {{ user.lastName }}</v-list-item-title>
             <v-list-item-subtitle>{{ user.country }}</v-list-item-subtitle>
-            <v-list-item-subtitle>{{ user.gender }}</v-list-item-subtitle>
+            <v-list-item-subtitle>gender : {{ user.gender === 'male' ? "Male" : "Female" }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+      </v-col>
+      <v-col cols="2" class="py-0" align-self="start">
+        <v-icon align-self="center" v-if="user.gender === 'male'">fa-mars</v-icon>
+        <v-icon align-self="center" v-if="user.gender === 'female'">fa-venus</v-icon>
       </v-col>
     </v-row>
   </v-card>
