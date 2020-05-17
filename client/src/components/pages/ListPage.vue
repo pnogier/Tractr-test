@@ -1,9 +1,28 @@
 <template>
   <v-container>
-    <ul>
-      <!-- Go through user in users and render a ListItem for each of them -->
-      <ListItem v-for="user in users" :key="user.id" :user="user" />
-    </ul>
+    <v-card color="#90d891" max-width="500" class="mx-auto">
+      <v-card-title>Filters</v-card-title>
+      <v-row align="center" justify="center">
+        <v-col cols="10">
+          <!-- Age range selector, the value filters.age is an array -->
+          <v-range-slider thumb-label="always" label="Age range" v-model="filters.age" step="1"></v-range-slider>
+          <!-- Gender selector, items and value are arrays -->
+          <v-select
+            v-model="filters.genders"
+            :items="genderItems"
+            attach
+            chips
+            label="Genders"
+            multiple
+          ></v-select>
+        </v-col>
+      </v-row>
+    </v-card>
+    <!-- Render the list only if the computed value filteredUsers is ready -->
+    <v-list v-if="filteredUsers">
+      <!-- Go through user in filteredUsers and render a ListItem for each of them -->
+      <ListItem v-for="user in filteredUsers" :key="user.id" :user="user" />
+    </v-list>
   </v-container>
 </template>
 
@@ -17,8 +36,27 @@ export default {
   name: "ListPage",
   data() {
     return {
-      users: [] // Set a users array to our component data
+      users: [], // Set a users array to our component data
+      filters: {
+        age: [0, 100], // Age range filter, default min 0 max 100
+        genders: ["male", "female"] // Genders array filter, default male and female
+      },
+      genderItems: ["male", "female"] // Genders items for select
     };
+  },
+  computed: {
+    // Define a computed value filteredUsers to get the filters applied users list
+    filteredUsers() {
+      // Return a new object going through each user is users using the filter method
+      return this.users.filter(
+        // Aply the filters
+        user =>
+          (user.gender == this.filters.genders[0] ||
+            user.gender == this.filters.genders[1]) &&
+          user.age >= this.filters.age[0] &&
+          user.age <= this.filters.age[1]
+      );
+    }
   },
   mounted() {
     // Perform an API call when our component is mounted
