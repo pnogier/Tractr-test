@@ -13,9 +13,11 @@ ___
 * Node.js
 * Express.js
 * Json files as a database
+* CORS
 
 ### Front-End
-* React.js or Vue.js
+* Vue.js
+* Vuetify
 
 ___
 
